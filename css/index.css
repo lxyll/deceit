@@ -1,0 +1,154 @@
+@import url(reset.css);
+
+.swiper-slide img {
+    width: 100%;
+}
+
+body {
+    background: url(../img/bg4.jpg) ;
+    background-size: 100%;
+    background-repeat:no-repeat;
+}
+
+.headTop {
+    color: #D1EEEE;
+    height: 2rem;
+    line-height: 2rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 1.6rem 0 1.6rem;
+}
+
+.headTop img {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+}
+
+.headTop span {
+    height: 2rem;
+    line-height: 2rem;
+    display: inline-block;
+}
+
+.headTop i {
+    height: 2rem;
+    line-height: 2rem;
+}
+
+.swiper-container {
+    padding-top:3rem;
+}
+
+/* header i {
+    position: absolute;
+    right: 1.2rem;
+    top: 1rem;
+    z-index: 3;
+    color: white;
+} */
+
+main {
+    color: #D1EEEE;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* display: flex;
+    flex-direction: column;
+    line-height: 4rem;
+    align-items: center;
+    margin-top: 6rem; */
+}
+
+input {
+    border:1px solid #ccc;
+    outline: none;
+    /* background: #D1EEEE; */
+    padding:5px;
+    border-radius:5px;
+    box-sizing: border-box;
+}
+
+label {
+    width: 16rem;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3rem;
+    padding-right:1rem; 
+}
+
+label span {
+    margin-right: 1rem;
+    padding-top: 0.2rem;
+}
+
+#LoginSave,
+.zhu,
+.wang {
+    background: #FF4500;
+    height: 2.2rem;
+    width: 4.7rem;
+    text-align: center;
+    line-height: 2.2rem;
+    border-radius: 5px;
+    color: white;
+}
+
+.zhu {
+    background: #32CD32;
+    margin: 0 1rem;
+}
+
+.wang {
+    background: #CD2626;
+}
+
+/* 以下是提示样式 */
+
+
+.nametext,.passtext {
+    position: absolute;
+    bottom: 0;
+    left: 3rem;
+    z-index: 5;
+}
+
+.nametext1,
+.passtext1 {
+    position: absolute;
+    top: 4rem;
+    left: 2rem;
+    color: #CD0000;
+}
+
+.hides {
+    display: none;
+}
+
+.shows {
+    display: block;
+}
+
+.nametext div,
+.passtext div {
+    text-align: center;
+}
+
+.tishi {
+    position: absolute;
+    left: 5.6rem;
+    background: #EE4000;
+    border-radius: 20px;
+}
+
+.tishi1,
+.tishi2,
+.tishi3 {
+    width: 14rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+}

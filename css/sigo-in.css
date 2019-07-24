@@ -1,0 +1,158 @@
+@import url(reset.css);
+
+body {
+    background: url(../img/bg8.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: #D1EEEE;
+}
+
+
+
+header {
+    /* position: absolute;
+    top: 0;
+    width: 100%; */
+    width: 100%;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    margin-top: 0.4rem;
+    /* text-align: center; */
+}
+
+.head {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+    /* color: #C9C9C9; */
+}
+
+.head-a {
+    display: inline-block;
+    /* line-height: 1.71rem; */
+    padding-left: 1.6rem;
+    color: #D1EEEE;
+    width: 47%;
+}
+
+.zhu {
+    display: inline-block;
+    width: 53%;
+}
+
+main {
+    /* position: absolute;
+    top: 7rem;
+    width: 100%; */
+    /* margin-top: 2rem; */
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* display: flex;
+    flex-direction: column;
+    line-height: 4rem;
+    align-items: center;
+    margin-top: 6rem; */
+}
+
+input {
+    border: 1px solid #ccc;
+    outline: none;
+    /* background: #D1EEEE; */
+    padding: 5px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+label {
+    width: 18rem;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3rem;
+    padding-right: 1.8rem;
+}
+
+label span {
+    margin-right: 1rem;
+    padding-top: 0.2rem;
+}
+
+
+
+/* 以下是提示样式 */
+
+
+.nametext,
+.passtext,
+.firm-passtext,
+.malibox,
+.phone {
+    position: absolute;
+    bottom: 0;
+    left: 3rem;
+    z-index: 5;
+}
+
+.nametext1,
+.passtext1,
+.firm-passtext1,
+.malibox1,
+.phone1 {
+    position: absolute;
+    top: 4rem;
+    left: 2rem;
+    color: #CD0000;
+}
+
+.hides {
+    display: none;
+}
+
+.shows {
+    display: block;
+}
+
+.nametext div,
+.passtext div {
+    text-align: center;
+}
+
+.tishi {
+    position: absolute;
+    left: 5.6rem;
+    background: #EE4000;
+    border-radius: 20px;
+}
+
+.tishi1,
+.tishi2,
+.tishi3,
+.tishi4,
+.tishi5,
+.tishi6,
+.tishi7,
+.tishi8,
+.tishi9 {
+    width: 14rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+}
+
+#v_container {
+    /* width: 100px;
+    height: 40px;
+    padding-left: 2rem; */
+}
+
+.my-button {
+    /* text-align: center;
+    background: pink;
+    width: 3rem;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 1rem; */
+}

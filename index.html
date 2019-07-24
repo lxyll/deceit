@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>狼人杀</title>
+    <script type="text/javascript">
+        document.addEventListener('plusready', function () {
+            //console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+
+        });
+    </script>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/font_5ofytvfaiw6/iconfont.css">
+    <script src="js/swiper.min.js"></script>
+</head>
+
+<body>
+
+
+    <header>
+        <audio src="audiio/bg.mp3" autoplay="autoplay" loop="loop" id="music"></audio>
+
+        <div class="headTop">
+            <img src="img/lo.jpg" alt="">
+            <span>狼人杀</span>
+            <i class="iconfont icon-laba icon" id="icon" style="font-size: 16px;"></i>
+        </div>
+
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="img/L2.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="img/L1.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="img/L3.jpg" alt=""></div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+        </div>
+        <script>
+            var mySwiper = new Swiper('.swiper-container', {
+                loop: true, // 循环模式选项
+                autoplay: true, //自动播放
+                // 如果需要分页器
+                pagination: {
+                    el: '.swiper-pagination',
+                }
+            })
+        </script>
+    </header>
+
+
+    <main>
+        <div id="tishi" class="tishi hides">
+            <p class="tishi1 hides">用户不存在！</p>
+            <p class="tishi2 hides">密码错误！</p>
+            <p class="tishi3 hides">不能为空！</p>
+        </div>
+
+        <div id="login">
+            <form id="logins" class="login">
+                <label for="">
+                    <span>用户名:</span>
+                    <input type="text" placeholder="请输入您的用户名" id="username" />
+                    <div class="nametext hides">
+                        <img src="img/T.jpg" alt="" style="width: 18rem;border-radius: 5px;">
+                        <div class="nametext1">
+                            <p>输入错误！首字必须以字母开头</p>
+                            <p>最少8位,且不得有汉字</p>
+                        </div>
+
+                    </div>
+                </label>
+
+                <label for="">
+                    <span>密码:</span>
+                    <input type="password" placeholder="请输入您的密码" id="password" />
+                    <div class="passtext hides">
+                        <img src="img/T.jpg" alt="" style="width: 18rem;border-radius: 5px;">
+                        <div class="passtext1">
+                            <p>输入错误！必须是数字和字母混合</p>
+                            <p>且不得有汉字，最少8位</p>
+                        </div>
+
+                    </div>
+                </label>
+
+                <label for="" style="padding-right: 0rem; margin-top: 4rem;">
+                    <a id="LoginSave">登录</a>
+                    <a href="sigo-in.html" class="zhu">注册</a>
+                    <a href="password.html" class="wang">忘记密码</a>
+                </label>
+
+            </form>
+        </div>
+    </main>
+
+
+
+    <script src="js/rem.js"></script>
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+
+</html>

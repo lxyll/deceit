@@ -16,6 +16,9 @@ $('#password').blur(function () { //密码
         });
         setTimeout(function () {
             $('.passtext').removeClass('shows'); //找到对应的标签隐藏
+            $('.passtext').css({
+                bottom: '0'
+            });
         }, 2000);
         $('#submit').attr('disabled', "true"); //添加disabled属性
         return false;
@@ -39,6 +42,9 @@ $('#confirm-password').blur(function () { //确认密码
         });
         setTimeout(function () {
             $('.firm-passtext').removeClass('shows'); //找到对应的标签隐藏
+            $('.firm-passtext').css({
+                bottom: '0'
+            });
         }, 2000);
         $('#submit').attr('disabled', "true"); //添加disabled属性
         return false;

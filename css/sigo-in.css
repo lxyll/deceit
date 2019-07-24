@@ -51,6 +51,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #FF4500;
     /* display: flex;
     flex-direction: column;
     line-height: 4rem;
@@ -80,6 +81,55 @@ label span {
     padding-top: 0.2rem;
 }
 
+.v_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: 1rem;
+}
+
+#v_container {
+    /* width: 10.3rem; */
+    /* height: 3rem; */
+    margin-right: 4.1rem;
+}
+
+#code_input {
+    margin-top: 1rem;
+}
+
+button {
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.my_button {
+    margin-top: 2rem;
+    padding-right: 0.4rem;
+}
+
+#submit,
+.my-button,
+.my-button1 {
+    background: #FF4500;
+    height: 2.2rem;
+    width: 4.7rem;
+    text-align: center;
+    line-height: 2.2rem;
+    border-radius: 5px;
+    color: white;
+}
+
+.my-button {
+    background: #32CD32;
+    margin: 0 1rem;
+}
+
+.my-button1 {
+    background: #CD2626;
+}
 
 
 /* 以下是提示样式 */
@@ -140,19 +190,4 @@ label span {
     height: 2rem;
     line-height: 2rem;
     text-align: center;
-}
-
-#v_container {
-    /* width: 100px;
-    height: 40px;
-    padding-left: 2rem; */
-}
-
-.my-button {
-    /* text-align: center;
-    background: pink;
-    width: 3rem;
-    height: 2rem;
-    line-height: 2rem;
-    border-radius: 1rem; */
 }

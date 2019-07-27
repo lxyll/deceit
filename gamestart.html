@@ -1,12 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>狼人杀</title>
+    <script type="text/javascript">
+        document.addEventListener('plusready', function () {
+            //console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+
+        });
+    </script>
+    <link rel="stylesheet" href="css/gamestart.css">
+    <link rel="stylesheet" href="css/font_5ofytvfaiw6/iconfont.css">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/rem.js"></script>
 </head>
+
 <body>
-    
+
+    <header>
+        <div class="head">
+            <a href="index.html" class="head-a"><i class="iconfont icon-jiantou"></i></a>
+            <span class="xiu">游戏人数</span>
+
+        </div>
+    </header>
+    <div class="hint">
+        <span>亲，还没选择人数呢</span>
+    </div>
+
+    <main>
+        <div class="headtext"><span>请选择</span></div>
+
+
+        <div style="display: flex;flex-direction: column;align-items: center;">
+            <ul class="tab">
+                <li>9</li>
+                <li>10</li>
+                <li>11</li>
+                <li>12</li>
+            </ul>
+
+            <div class="box">
+                <div class="status shows">
+                    <div class="rank">
+                        <span>村民:</span>
+                        <span>人</span>
+                    </div>
+                    <div class="rank">
+                        <span>狼人:</span>
+                        <span>人</span>
+                    </div>
+                    <div class="rank">
+                        <span>预言家:</span>
+                        <span>人</span>
+                    </div>
+                    <div class="rank">
+                        <span>女巫:</span>
+                        <span>人</span>
+                    </div>
+                    <div class="rank">
+                        <span>猎人:</span>
+                        <span>人</span>
+                    </div>
+                </div>
+
+                <div class="status hides">
+                    <div class="rank">
+                        <span>村民:</span>
+                        <span>3人</span>
+                    </div>
+                    <div class="rank">
+                        <span>狼人:</span>
+                        <span>3人</span>
+                    </div>
+                    <div class="rank">
+                        <span>预言家:</span>
+                        <span>1人</span>
+                    </div>
+                    <div class="rank">
+                        <span>女巫:</span>
+                        <span>1人</span>
+                    </div>
+                    <div class="rank">
+                        <span>猎人:</span>
+                        <span>1人</span>
+                    </div>
+                </div>
+
+
+                <div class="status hides">
+                    <div class="rank">
+                        <span>村民:</span>
+                        <span>4人</span>
+                    </div>
+                    <div class="rank">
+                        <span>狼人:</span>
+                        <span>3人</span>
+                    </div>
+                    <div class="rank">
+                        <span>预言家:</span>
+                        <span>1人</span>
+                    </div>
+                    <div class="rank">
+                        <span>女巫:</span>
+                        <span>1人</span>
+                    </div>
+                    <div class="rank">
+                        <span>猎人:</span>
+                        <span>1人</span>
+                    </div>
+                </div>
+
+
+                <div class="status hides">
+                    <div class="rank">
+                        <span>村民:</span>
+                        <span>4人</span>
+                    </div>
+                    <div class="rank">
+                        <span>狼人:</span>
+                        <span>4人</span>
+                    </div>
+                    <div class="rank">
+                        <span>预言家:</span>
+                        <span>1人</span>
+                    </div>
+                    <div class="rank">
+                        <span>女巫:</span>
+                        <span>1人</span>
+                    </div>
+                    <div class="rank">
+                        <span>猎人:</span>
+                        <span>1人</span>
+                    </div>
+                </div>
+
+                <div class="status hides">
+                    <div class="rank">
+                        <span>村民:</span>
+                        <span>5人</span>
+                    </div>
+                    <div class="rank">
+                        <span>狼人:</span>
+                        <span>4人</span>
+                    </div>
+                    <div class="rank">
+                        <span>预言家:</span>
+                        <span>1人</span>
+                    </div>
+                    <div class="rank">
+                        <span>女巫:</span>
+                        <span>1人</span>
+                    </div>
+                    <div class="rank">
+                        <span>猎人:</span>
+                        <span>1人</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+
+        <div class="next">
+            <span>下一步</span>
+        </div>
+    </main>
+
+    <script src="js/gamestart.js"></script>
 </body>
+
+
 </html>

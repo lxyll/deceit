@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <style>
+        .slide {
+            width: 400px;
+            height: 200px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .slide ul li {
+            text-align: center;
+            font-size: 30px;
+            padding-top: 50px;
+            height: 200px;
+            color: #fff;
+        }
+
+        .slide_btn {
+            display: block;
+            background: #ccc;
+            color: #fff;
+            width: 100px;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide">
+        <ul>
+            <li>11111111111</li>
+            <li>22222222222</li>
+            <li>33333333333</li>
+            <li>44444444444</li>
+        </ul>
+    </div>
+    <a class="slide_btn" href="javascript:;">换一换</a>
+    <script type="text/javascript">
+        $(function () {
+            var n = 0,
+                act;
+            var lengths = $('.slide ul li').length;
+            $('.slide_btn').click(function () {
+                n += 1;
+                if (n == lengths) {
+                    n = 0;
+                }
+                $('.slide ul li').eq(n).show().siblings('li').hide();;
+            });
+
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,380 @@
+@import url(reset.css);
+
+body {
+    background: url(../img/bg0.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: #EEE0E5;
+}
+
+
+
+header {
+    /* position: absolute;
+    top: 0;
+    width: 100%; */
+    width: 100%;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    margin-top: 0.4rem;
+    /* text-align: center; */
+}
+
+.head {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+    /* color: #C9C9C9; */
+}
+
+.head-a {
+    display: inline-block;
+    /* line-height: 1.71rem; */
+    padding-left: 1.6rem;
+    color: #EEE0E5;
+    width: 42%;
+}
+
+.xiu {
+    display: inline-block;
+    width: 58%;
+}
+
+.hides {
+    display: none
+}
+
+.shows {
+    display: block;
+}
+
+.days {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.day {
+    width: 15rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    display: flex;
+    justify-content: flex-start;
+    background: #FF4500;
+    padding-left: 0.8rem;
+    border-radius: 5px;
+    margin-bottom: 0.4rem;
+}
+
+.day span {
+    padding-left: 4.2rem;
+}
+
+.night,
+.daytime {
+    width: 10rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    border-radius: 5px;
+    background: rgb(235, 70, 11);
+    display: flex;
+    padding-left: 0.8rem;
+    margin-bottom: 0.4rem;
+}
+
+.night span,
+.daytime span {
+    padding-left: 2.2rem;
+}
+
+.night-activity,
+.daytime-activity {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    margin-left: 2rem;
+}
+
+.night-activity li,
+.daytime-activity li {
+    text-align: center;
+    width: 6rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    border-radius: 5px;
+    background: #FF4040;
+    margin-bottom: 0.4rem;
+}
+
+.rotate {
+    transform: rotate(0);
+    transition: all .3s linear;
+    -webkit-transform: rotate(0);
+    -webkit-transtion: all .3s linear;
+}
+
+.rotate1 {
+    transform: rotate(-90deg);
+    transition: all .3s linear;
+    -webkit-transform: rotate(-90deg);
+    -webkit-transtion: all .3s linear;
+}
+
+
+.color {
+    background: red;
+}
+
+
+/* 狼人部分 开始 */
+.killSelects {
+    overflow-y: scroll;
+    /* height: 300px; */
+    /* margin-top: 3rem; */
+}
+
+.killSelects::-webkit-scrollbar {
+    display: none;
+}
+
+.killSelect {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    ;
+    padding: 1.2rem;
+}
+
+
+
+.killSelect li {
+    margin-bottom: 1rem;
+    width: 6.3rem;
+    height: 10rem;
+    /* border: 1px solid red; */
+    overflow: hidden;
+    position: relative;
+}
+
+.killSelect li img {
+    width: 6.3rem;
+    height: 10rem;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.sure,
+.back {
+    display: inline-block;
+    background: #FF4500;
+    height: 2.2rem;
+    width: 5.4rem;
+    text-align: center;
+    line-height: 2.2rem;
+    border-radius: 5px;
+    color: white;
+}
+
+.color {
+    background: red !important;
+}
+
+.sure {
+    margin-right: 2rem;
+}
+
+/* .back {
+    pointer-events: none;
+} */
+
+.pitchOn {
+    position: absolute;
+    top: 0.2rem;
+    left: 1.9rem;
+    z-index: 5;
+}
+
+/* 狼人部分 结束 */
+
+
+/* 预言家部分 开始 */
+
+.seerChecks {
+    overflow-y: scroll;
+    /* height: 300px; */
+    /* margin-top: 3rem; */
+}
+
+.seerChecks::-webkit-scrollbar {
+    display: none;
+}
+
+.seerCheck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1.2rem;
+    
+}
+
+
+
+.seerCheck li {
+    margin-bottom: 1rem;
+    width: 6.3rem;
+    height: 10rem;
+    /* border: 1px solid red; */
+    overflow: hidden;
+    position: relative;
+}
+
+.seerCheck li img {
+    width: 6.3rem;
+    height: 10rem;
+}
+
+.buttonSeer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.sureSeer,
+.backSeer {
+    display: inline-block;
+    background: #B7B7B7;
+    height: 2.2rem;
+    width: 5.4rem;
+    text-align: center;
+    line-height: 2.2rem;
+    border-radius: 5px;
+    color: white;
+}
+
+.color {
+    background: red !important;
+}
+
+.sureSeer {
+    margin-right: 2rem;
+    pointer-events:none;
+}
+
+.backSeer {
+    pointer-events: none;
+}
+
+.jin {
+    pointer-events: none;
+}
+
+.pitchOn {
+    position: absolute;
+    top: 0.2rem;
+    left: 1.9rem;
+    z-index: 5;
+}
+
+/* 预言家部分 结束 */
+
+
+/* 女巫开始 */
+
+.witchSelects {
+    overflow-y: scroll;
+    /* height: 300px; */
+    /* margin-top: 3rem; */
+}
+
+.witchSelects::-webkit-scrollbar {
+    display: none;
+}
+
+.witchSelect {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1.2rem;
+    
+}
+
+
+
+.witchSelect li {
+    margin-bottom: 1rem;
+    width: 6.3rem;
+    height: 10rem;
+    /* border: 1px solid red; */
+    overflow: hidden;
+    position: relative;
+}
+
+.witchSelect li img {
+    width: 6.3rem;
+    height: 10rem;
+}
+
+.buttonWitch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.sureWitch,
+.backWitch {
+    display: inline-block;
+    background: #a8a8a8;
+    height: 2.2rem;
+    width: 5.4rem;
+    text-align: center;
+    line-height: 2.2rem;
+    border-radius: 5px;
+    color: white;
+}
+
+.sureWitch {
+    margin-right: 2rem;
+    pointer-events:none;
+}
+
+.backWitch {
+    pointer-events: none;
+}
+
+.help {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.help span {
+    display: inline-block;
+    background: #8B1A1A;
+    height: 2.2rem;
+    width: 5.4rem;
+    text-align: center;
+    line-height: 2.2rem;
+    border-radius: 5px;
+    color: white;
+}
+
+.help span:nth-child(2) {
+    margin: 0 1rem;
+    background: #32CD32;
+}
+
+.help span:nth-child(3) {
+    width: 6rem;
+    background: #CD0000;
+}
+
+/* 女巫结束 */

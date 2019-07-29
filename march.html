@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>狼人杀</title>
+    <script type="text/javascript">
+        document.addEventListener('plusready', function () {
+            //console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+
+        });
+    </script>
+    <link rel="stylesheet" href="css/march.css">
+    <link rel="stylesheet" href="css/font_5ofytvfaiw6/iconfont.css">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/rem.js"></script>
+</head>
+
+<body>
+    <!-- 头部，当 角色 具体进行操作时（如：狼人杀人）和职业选择页一起隐藏 -->
+    <header class="header ">
+        <div class="head">
+            <a href="index.html" class="head-a"><i class="iconfont icon-jiantou"></i></a>
+            <span class="xiu">进行页</span>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- 职业选择页，当 角色 具体进行操作时（如：狼人杀人）和头部一起隐藏 -->
+        <div class="firstDiv ">
+            <ul style="margin-top: 0.5rem;">
+                <li class="days">
+                    <!--一级页面-->
+                    <div class="day">
+                        <i class="iconfont icon-jiantou rotate1"></i>
+                        <span>第一天</span>
+
+                    </div>
+
+                    <ul class="nights ">
+                        <!--二级页面-->
+                        <li>
+                            <div class="night">
+                                <i class="iconfont icon-jiantou rotate1"></i>
+                                <span>晚上</span>
+
+                            </div>
+
+                            <ul class="night-activity ">
+                                <!--三级界面-->
+                                <li id="kill">
+                                    <span>狼人杀人</span>
+                                </li>
+                                <li id="seer">
+                                    <span>预言家查看</span>
+                                </li>
+                                <li id="witch">
+                                    <span>女巫选择</span>
+                                </li>
+                                <li id="defend">
+                                    <span>守卫选择</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="daytimes ">
+                        <!--二级页面-->
+                        <li>
+                            <div class="daytime">
+                                <i class="iconfont icon-jiantou rotate1"></i>
+                                <span>白天</span>
+
+                            </div>
+
+                            <ul class="daytime-activity ">
+                                <!--三级界面-->
+                                <li id="sheriff">
+                                    <span>竞选警长</span>
+                                </li>
+                                <li id="badge">
+                                    <span>警徽选择</span>
+                                </li>
+                                <li id="sheriffSpeak">
+                                    <span>警长发言</span>
+                                </li>
+                                <li id="ownerSpeak">
+                                    <span>所有人发言</span>
+                                </li>
+                                <li id="vote">
+                                    <span>投票</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- 狼人选择页面 开始 -->
+
+        <div class="killSelects hides">
+            <ul class="killSelect">
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+            </ul>
+
+            <div class="button">
+                <span class="sure">确定</span>
+                <span class="back">返回</span>
+            </div>
+        </div>
+
+        <!--  狼人选择页面 结束 -->
+
+
+        <!-- 以下是预言家的操作 开始 -->
+
+        <div class="seerChecks hides">
+            <ul class="seerCheck">
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+            </ul>
+
+            <div class="buttonSeer">
+                <span class="sureSeer">确定</span>
+                <span class="backSeer">返回</span>
+            </div>
+        </div>
+
+        <!-- 预言家结束 -->
+
+        <!-- 以下是女巫操作 -->
+
+        <div class="witchSelects hides">
+            <ul class="witchSelect">
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+                <li><img src="img/bglogo.jpg" alt=""></li>
+            </ul>
+
+            <div class="help">
+                <span>毒药</span>
+                <span>解药</span>
+                <span>什么都不做</span>
+            </div>
+
+            <div class="buttonWitch">
+                <span class="sureWitch">确定</span>
+                <span class="backWitch">返回</span>
+            </div>
+        </div>
+
+        <!-- 女巫操作结束 -->
+
+
+
+        <!-- <div>
+            <span>法官查看</span>
+        </div> -->
+    </main>
+
+    <script src="js/march.js"></script>
+</body>
+
+
+</html>

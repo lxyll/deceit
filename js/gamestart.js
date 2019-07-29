@@ -24,6 +24,6 @@ $(document).ready(function () {
             }, 2000);
             return false;
         }
-        location.href = "password.html";
+        location.href = "march.html";
     });
 });

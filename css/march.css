@@ -131,7 +131,7 @@ header {
 .killSelects {
     overflow-y: scroll;
     /* height: 300px; */
-    /* margin-top: 3rem; */
+    margin-top: 1.2rem;
 }
 
 .killSelects::-webkit-scrollbar {
@@ -208,7 +208,7 @@ header {
 .seerChecks {
     overflow-y: scroll;
     /* height: 300px; */
-    /* margin-top: 3rem; */
+    margin-top: 1.2rem;
 }
 
 .seerChecks::-webkit-scrollbar {
@@ -290,7 +290,7 @@ header {
 .witchSelects {
     overflow-y: scroll;
     /* height: 300px; */
-    /* margin-top: 3rem; */
+    margin-top: 1.2rem;
 }
 
 .witchSelects::-webkit-scrollbar {
@@ -347,6 +347,7 @@ header {
 
 .backWitch {
     pointer-events: none;
+    /* background: #FF4500; */
 }
 
 .help {
@@ -356,9 +357,95 @@ header {
     margin-bottom: 1rem;
 }
 
-.help span {
+.bane {
     display: inline-block;
-    background: #8B1A1A;
+    /* background: #8B1A1A; */
+    height: 2.2rem;
+    width: 5.4rem;
+    text-align: center;
+    line-height: 2.2rem;
+    border-radius: 5px;
+    color: white;
+    pointer-events: none;
+    background: #a8a8a8;
+}
+
+.antidote {
+    display: inline-block;
+    height: 2.2rem;
+    width: 5.4rem;
+    text-align: center;
+    line-height: 2.2rem;
+    border-radius: 5px;
+    color: white;
+    margin: 0 1rem;
+    /* background: #32CD32; */
+    pointer-events: none;
+    background: #a8a8a8;
+}
+
+.inaction {
+    display: inline-block;
+    height: 2.2rem;
+    text-align: center;
+    line-height: 2.2rem;
+    border-radius: 5px;
+    width: 6rem;
+    background: #CD0000;
+}
+
+/* 女巫结束 */
+
+
+/* 守卫开始 */
+
+
+.defendChecks {
+    overflow-y: scroll;
+    /* height: 300px; */
+    margin-top: 1.2rem;
+}
+
+.defendChecks::-webkit-scrollbar {
+    display: none;
+}
+
+.defendCheck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    ;
+    padding: 1.2rem;
+}
+
+
+
+.defendCheck li {
+    margin-bottom: 1rem;
+    width: 6.3rem;
+    height: 10rem;
+    /* border: 1px solid red; */
+    overflow: hidden;
+    position: relative;
+}
+
+.defendCheck li img {
+    width: 6.3rem;
+    height: 10rem;
+}
+
+.buttondefend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.suredefend,
+.backdefend {
+    display: inline-block;
+    /* background: #FF4500; */
+    background: #a8a8a8;
     height: 2.2rem;
     width: 5.4rem;
     text-align: center;
@@ -367,14 +454,179 @@ header {
     color: white;
 }
 
-.help span:nth-child(2) {
-    margin: 0 1rem;
-    background: #32CD32;
+.color {
+    background: red !important;
 }
 
-.help span:nth-child(3) {
-    width: 6rem;
-    background: #CD0000;
+.suredefend {
+    margin-right: 2rem;
+    pointer-events: none;
 }
 
-/* 女巫结束 */
+.backdefend {
+    pointer-events: none;
+}
+
+/* .back {
+    pointer-events: none;
+} */
+
+.pitchOn {
+    position: absolute;
+    top: 0.2rem;
+    left: 1.9rem;
+    z-index: 5;
+}
+
+
+/* 警徽选择开始 */
+
+.badgeChecks {
+    overflow-y: scroll;
+    /* height: 300px; */
+    margin-top: 1.2rem;
+}
+
+.badgeChecks::-webkit-scrollbar {
+    display: none;
+}
+
+.badgeCheck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    ;
+    padding: 1.2rem;
+}
+
+
+
+.badgeCheck li {
+    margin-bottom: 1rem;
+    width: 6.3rem;
+    height: 10rem;
+    /* border: 1px solid red; */
+    overflow: hidden;
+    position: relative;
+}
+
+.badgeCheck li img {
+    width: 6.3rem;
+    height: 10rem;
+}
+
+.buttonbadge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.surebadge,
+.backbadge {
+    display: inline-block;
+    /* background: #FF4500; */
+    background: #a8a8a8;
+    height: 2.2rem;
+    width: 5.4rem;
+    text-align: center;
+    line-height: 2.2rem;
+    border-radius: 5px;
+    color: white;
+}
+
+.color {
+    background: red !important;
+}
+
+.surebadge {
+    margin-right: 2rem;
+    pointer-events: none;
+}
+
+.backbadge {
+    pointer-events: none;
+}
+
+/* .back {
+    pointer-events: none;
+} */
+
+.pitchOn {
+    position: absolute;
+    top: 0.2rem;
+    left: 1.9rem;
+    z-index: 5;
+}
+
+
+/* 警徽选择结束 */
+
+
+/* 投票开始 */
+
+.votes {
+    overflow-y: scroll;
+    /* height: 300px; */
+    margin-top: 1.2rem;
+}
+
+.votes::-webkit-scrollbar {
+    display: none;
+}
+
+.vote {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    ;
+    padding: 1.2rem;
+}
+
+
+
+.vote li {
+    margin-bottom: 1rem;
+    width: 6.3rem;
+    height: 10rem;
+    /* border: 1px solid red; */
+    overflow: hidden;
+    position: relative;
+}
+
+.vote li img {
+    width: 6.3rem;
+    height: 10rem;
+}
+
+.buttonvote {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.surevote,
+.backvote {
+    display: inline-block;
+    /* background: #FF4500; */
+    background: #a8a8a8;
+    height: 2.2rem;
+    width: 5.4rem;
+    text-align: center;
+    line-height: 2.2rem;
+    border-radius: 5px;
+    color: white;
+}
+
+.surevote {
+    margin-right: 2rem;
+    pointer-events: none;
+}
+
+.backvote {
+    pointer-events: none;
+}
+
+
+/* 投票结束 */

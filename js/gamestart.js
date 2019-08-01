@@ -24,6 +24,6 @@ $(document).ready(function () {
             }, 2000);
             return false;
         }
-        location.href = "march.html";
+        location.href = "deal.html";
     });
 });

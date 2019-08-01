@@ -61,6 +61,7 @@ $(document).ready(function () { //添加随机人物 通用
             $('.defendCheck li').eq(i).append(image); //添加守卫页面
             $('.badgeCheck li').eq(i).append(image); //添加警徽页面
             $('.vote li').eq(i).append(image); //添加投票页面
+            $('.own li').eq(i).append(image); //添加投票页面
         }
     }
     // $(".killSelect li img").prev().hide();
@@ -363,6 +364,10 @@ $(document).ready(function () { //选择杀谁
         // console.log(num);
         $('.witchSelect li').eq(num).addClass('kill'); //女巫毒人，给死亡标签
         $('.witchSelect li').eq(num).removeClass('live'); //移除本身的生存标签
+
+        $('.own li').eq(num).addClass('kill'); //
+        $('.own li').eq(num).removeClass('live'); //女巫毒人
+
         $(this).css({
             'background': '#a8a8a8',
             'pointer-events': 'none'
@@ -385,6 +390,11 @@ $(document).ready(function () { //选择杀谁
         // console.log(num);
         $('.witchSelect li').eq(num).removeClass('kill'); //女巫救人，移除死亡标签
         $('.witchSelect li').eq(num).addClass('live'); //添加生存标签
+
+        $('.own li').eq(num).removeClass('kill'); //
+        $('.own li').eq(num).addClass('live'); //女巫救人，和狼人的下标是同一个，被杀才救
+
+
         $(this).css({
             'background': '#a8a8a8',
             'pointer-events': 'none'
@@ -470,6 +480,7 @@ $(document).ready(function () {
         var pitchOn = '<i class="iconfont icon-icon-test pitchOn" style="font-size: 2.4rem;"></i>' //添加选中之后的状态
         $('.defendCheck li').eq(index).append(pitchOn); //鼠标选中哪个就添加哪个
         $('.defendCheck li').eq(index).addClass('defend'); //守卫选中添加一个守卫标签
+        $('.own li').eq(index).addClass('defend'); //守卫选中添加一个守卫标签
         var li = $('.defendCheck i').size(); //判断有几个i
         // console.log(num);
         arr.push(index);
@@ -501,6 +512,7 @@ $(document).ready(function () {
             'pointer-events': 'auto',
             background: '#FF4500'
         });
+
     });
 
 
@@ -747,17 +759,21 @@ $(document).ready(function () {
 
 
 
-
+// $('.suredefend').click(function () {
+//     $('.own li').eq(defendnum).addClass('defend');
+// });
 
 $('.god').click(function () {
-    $('.header').addClass('hides');
-    $('.firstDiv').addClass('hides');
-    $('.all').removeClass('hides');
-    $('.god').hide();
+    // setTimeout(function () {
+        $("#all").load(location.href + "#all");
+        $('.header').addClass('hides');
+        $('.firstDiv').addClass('hides');
+        $('.all').removeClass('hides');
+        $('.god').hide();
 
 
 
-    // $(document).ready(function () {
+        // $(document).ready(function () {
         // Arr[Arr.length - 1] 去最后一个值
         // $("#all").load(location.href+"#all");
         // setTimeout(function () {
@@ -766,66 +782,72 @@ $('.god').click(function () {
         var killlength = killSelect.length; //数组的长度
         var killnum = killSelect[killSelect.length - 1] //每次数组的最后一个值
         console.log(killnum);
-    
-    
+
+
         localStorage.getItem('seerCheck'); //预言家查看的
-    
-    
+
+
         var witchs = localStorage.getItem('witch'); //女巫
         var witch = witchs.split(',');
         var witchnum = witch[witch.length - 1]
         console.log(witchnum);
-    
-    
+
+
         var defends = localStorage.getItem('defend'); //守卫的
         var defend = defends.split(',');
         var defendnum = defend[defend.length - 1]
         console.log(defendnum);
-    
+
         var votes = localStorage.getItem('vote'); //投票的
         var vote = votes.split(',');
         var votenum = vote[vote.length - 1]
         console.log(votenum);
-    
+
         // if (killlength > 1) {
         $('.own li').eq(killnum).removeClass('live'); //
         $('.own li').eq(killnum).addClass('kill'); //这个和上面那条都是第一次狼人杀人的操作
         // }
-    
+
         // $(".div").load(location.href+" .div");//div局部刷新
         // $('.bane').click(function () {//女巫毒
         //     $('.own li').eq(witchnum).addClass('kill');//
         //     $('.own li').eq(witchnum).removeClass('live');//女巫毒人
         // });
-    
+
         // $('.antidote').click(function () {//女巫救
         //     $('.own li').eq(killnum).removeClass('kill');//
         //     $('.own li').eq(killnum).addClass('live');//女巫救人，和狼人的下标是同一个，被杀才救
         // });
-    
-    
-        $('.suredefend').click(function () {
-            $('.own li').eq(defendnum).addClass('defend');
-        });
-        if ($('.own li').eq(defendnum).is('defend')) {
-            alert(1)
+
+
+        // $('.all').click(function () {
+        // $('.own li').eq(defendnum).addClass('defend');
+        if ($('.own li').eq(defendnum).hasClass('defend')) {
+            // alert(1)
             $('.own li').eq(defendnum).removeClass('kill');
             $('.own li').eq(defendnum).addClass('live');
+            setTimeout(function () {
+                $('.own li').eq(defendnum).removeClass('defend');
+            }, 2000);
         }
-    
-        // $('.own li').eq(votenum).removeClass('live');
-        // $('.own li').eq(votenum).addClass('kill');
-    
+        // });
+
+
+        $('.own li').eq(votenum).removeClass('live');
+        $('.own li').eq(votenum).addClass('kill');
+
         if ($('.own li').is('.kill')) {
             $('.kill').children().remove();
             var image = "<img src='img/logo.jpg'>";
             $('.kill').append(image);
-    
+
         }
         // }, 100);
-    
-    
-    // });
+
+
+        // });
+    // }, 1000);
+
 });
 
 $('.backown').click(function () {
@@ -843,7 +865,7 @@ $('.god').click(function () {
 var aa = 0;
 $('.backvote').click(function () { //投票页面的返回
     // $("#all").load(location.href+"#all");
-    
+
     var arr = ['二', '三', '四', '五', '六', '七', '八', '九', '十']
     $('.header').removeClass('hides');
     $('.firstDiv').removeClass('hides');
@@ -909,6 +931,33 @@ $('.backvote').click(function () { //投票页面的返回
 
     }
 
+    // 检测是否还有狼人，如果没有，则提示平民胜利。如果没有平民，就狼人胜利
+
+    // $(".own li [src^='img/r2']").prev().hide(); //非狼人 隐藏
+    var lan = $(".own li [src^='img/r2']");
+    // console.log(lan.length);
+    if (lan.length == 0) {
+        alert("游戏结束，平民获胜");
+    }
+
+    var chun = $(".own li [src^='img/r5']");
+    if(chun.length == 0) {
+        alert("游戏结束，狼人获胜");
+    }
+
+    var shou = $(".own li [src^='img/r4']");
+    if (shou.length == 0) {
+        $('#defend').click(function () {
+            alert("守卫以死");
+            $('.suredefend').css({
+                'pointer-events': 'none'
+            });
+            $('.backdefend').css({
+                'pointer-events': 'auto',
+                background: '#FF4500'
+            });
+        });
+    }
 
     aa += 1;
 });

@@ -194,8 +194,9 @@ $('#password').blur(function () { //密码
         return false;
     }
     $('#submit').removeAttr("disabled"); //移除disabled属性
+    console.log($('#password').val());
     return true;
-    // console.log($('#password').val());
+    
 })
 
 

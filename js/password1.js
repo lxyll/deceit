@@ -23,9 +23,11 @@ $('#password').blur(function () { //密码
         $('#submit').attr('disabled', "true"); //添加disabled属性
         return false;
     }
+    
     $('#submit').removeAttr("disabled"); //移除disabled属性
+    console.log($('#password').val());
     return true;
-    // console.log($('#password').val());
+    
 })
 
 
@@ -88,7 +90,7 @@ $('form').submit(function (e) {
     arr.push(password);
 
     localStorage.setItem("message", arr);
-    console.log(localStorage.getItem("message"));
+    // console.log(localStorage.getItem("message"));
 
     $('.tishi').addClass('shows');
     $('.tishi2').addClass('shows');

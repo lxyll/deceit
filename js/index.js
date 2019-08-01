@@ -38,6 +38,7 @@ $('#username').blur(function () { //用户名
     var name = arr[0];
     // var password = arr[1];
     var _thisname = $('#username').val();
+    console.log(_thisname);
     if (_thisname != name) {
         $('.tishi').addClass('shows');
         $('.tishi1').addClass('shows');
@@ -77,6 +78,7 @@ $('#password').blur(function () { //密码
     // var name = arr[0];
     var password = arr[1];
     var _thispassword = $('#password').val();
+    console.log(_thispassword);
     if (_thispassword != password) {
         $('.tishi').addClass('shows');
         $('.tishi2').addClass('shows');

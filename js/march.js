@@ -15,6 +15,10 @@ $(document).ready(function () { //收缩菜单
     show('.day');
     show('.night');
     show('.daytime');
+
+    if ($('.day span').text() == '第一天') {
+        $('.god').hide();
+    }
 });
 
 // 得到可视区的高度，并设置高度
@@ -36,6 +40,7 @@ $(document).ready(function () {
     heights('.defendChecks');
     heights('.badgeChecks');
     heights('.votes');
+    heights('.all');
 });
 
 // console.log($(window).height());
@@ -90,6 +95,8 @@ $(document).ready(function () { //点击狼人杀人事件
             $('.firstDiv').removeClass('hides');
             $('.killSelects').addClass('hides');
         }
+        $('#seer').removeClass('two')
+        $('.god').hide();
     });
 });
 
@@ -97,17 +104,25 @@ $(document).ready(function () { //点击狼人杀人事件
 $(document).ready(function () { //选择杀谁
     var num = -1;
     var arr = [];
+    // localStorage.setItem('killSelect', arr);
     $('.killSelect li').on('click', function () {
         // alert(1)
+        // var a = $(".killSelect li [src^='img/r2']");
+        // if ($(".killSelect li img [src^='img/r2']").parent()) {
+        //     alert('不能自杀');
+        // }
         var index = $(this).index(); //鼠标点击的li的下标值
         // console.log(index);
         var pitchOn = '<i class="iconfont icon-icon-test pitchOn" style="font-size: 2.4rem;"></i>' //添加选中之后的状态
         $('.killSelect li').eq(index).append(pitchOn); //鼠标选中哪个就添加哪个
+        $('.killSelect li').eq(index).removeClass('live'); //狼人选择删除live标签
+        $('.killSelect li').eq(index).addClass('kill'); //添加死亡标签
         var li = $('.killSelect i').size(); //判断有几个i
         // console.log(num);
 
         arr.push(index);
-        // console.log(arr);
+        // console.log(arr); //存放的是狼人杀人的下标
+        localStorage.setItem('killSelect', arr);
         if (li > 1) {
             // alert(1)
             // var a = arr[num];
@@ -115,8 +130,14 @@ $(document).ready(function () { //选择杀谁
             // console.log($('.killSelect li').eq(arr[num]).children('i'));
             $('.killSelect li').eq(arr[num]).children('i').remove(); //删除上一次的添加事件
         }
+
         num += 1;
     });
+    // if ($('.day span').text() == '第二天') {
+    //     // alert(1);
+    //     arr.splice(0,arr.length);
+    //     localStorage.setItem('killSelect', arr);
+    // }
 
 });
 
@@ -162,12 +183,7 @@ $(document).ready(function () { //返回按钮 通用
 
 $(document).ready(function () { //预言家查看事件
     $('#seer').on('click', function () {
-        setTimeout(function () {
-            $('#seer').addClass('color');
-        }, 2000);
-        $('.header').addClass('hides');
-        $('.firstDiv').addClass('hides');
-        $('.seerChecks').removeClass('hides');
+
         // console.log($('#kill').is('.color'));
         if ($('#seer').is('.color')) {
             alert("此步骤已完成")
@@ -175,26 +191,47 @@ $(document).ready(function () { //预言家查看事件
             $('.firstDiv').removeClass('hides');
             $('.seerChecks').addClass('hides');
         }
+        console.log($('#seer').is('.two'));
+        if ($('#seer').is('.two')) {
+            alert('请按顺序');
+
+        } else {
+            setTimeout(function () {
+                $('#seer').addClass('color');
+            }, 2000);
+            $('.header').addClass('hides');
+            $('.firstDiv').addClass('hides');
+            $('.seerChecks').removeClass('hides');
+            $('#witch').removeClass('three')
+        }
+        $('.god').hide();
     });
 });
 
 
 $(document).ready(function () { //选择查看谁
     var arr = [];
+    // localStorage.setItem('seerCheck', arr);
     $('.seerCheck li').on('click', function () {
         var index = $(this).index(); //鼠标点击的li的下标值
         $('.seerCheck li').eq(index).children().eq(0).addClass('hides'); //鼠标选中哪个 显示哪个的身份
         arr.push(index); //添加选中人的下标
-        $('.seerCheck').css({ //只能查看一次
-            'pointer-events': 'none'
+        // $('.seerCheck').css({ //只能查看一次
+        //     'pointer-events': 'none'
 
-        });
+        // });
         $('.sureSeer').css({
             'pointer-events': 'auto',
             background: '#FF4500'
         });
+        // console.log(arr); //预言家查看的下标
+        localStorage.setItem('seerCheck', arr);
     });
-
+    // if ($('.day span').text() == '第二天') {
+    //     // alert(1);
+    //     arr.splice(0,arr.length);
+    //     localStorage.setItem('seerCheck', arr);
+    // }
 });
 
 
@@ -202,15 +239,20 @@ $(document).ready(function () { //选择查看谁
 $(document).ready(function () { //确定按钮 通用
     $('.sureSeer').click(function () {
         $(".seerCheck").each(function () {
-            var pointer = $(this).attr("style").indexOf("pointer-events");
-            // console.log(pointer);
-            if (pointer != (-1)) {
-                alert("选择成功");
-                $('.backSeer').css({
-                    'pointer-events': 'auto',
-                    background: '#FF4500'
-                });
-            }
+            // var pointer = $(this).attr("style").indexOf("pointer-events");
+            // // console.log(pointer);
+            // if (pointer != (-1)) {
+            //     alert("选择成功");
+            //     $('.backSeer').css({
+            //         'pointer-events': 'auto',
+            //         background: '#FF4500'
+            //     });
+            // }
+        });
+        alert("选择成功");
+        $('.backSeer').css({
+            'pointer-events': 'auto',
+            background: '#FF4500'
         });
         // var li = $('.killSelect i').size(); //判断有几个i
         // alert(1) //选中之后的图标  <i class="iconfont icon-icon-test" style="font-size: 2.4rem;"></i>
@@ -234,36 +276,45 @@ $(document).ready(function () { //返回按钮 通用
         $('.seerChecks').addClass('hides');
         $('.header').removeClass('hides');
         $('.firstDiv').removeClass('hides');
-
     });
 });
 
 //预言家的操作 结束
 
 
+
+
 //女巫开始
 
 $(document).ready(function () { //女巫查看事件
     $('#witch').on('click', function () {
-        setTimeout(function () {
-            $('#witch').addClass('color');
-        }, 2000);
-        $('.header').addClass('hides');
-        $('.firstDiv').addClass('hides');
-        $('.witchSelects').removeClass('hides');
-        // console.log($('#kill').is('.color'));
+
+        console.log($('#kill').is('.color'));
         if ($('#witch').is('.color')) {
             alert("此步骤已完成")
             $('.header').removeClass('hides');
             $('.firstDiv').removeClass('hides');
             $('.witchSelects').addClass('hides');
         }
+        if ($('#witch').is('.three')) {
+            alert('请按顺序')
+        } else {
+            setTimeout(function () {
+                $('#witch').addClass('color');
+            }, 2000);
+            $('.header').addClass('hides');
+            $('.firstDiv').addClass('hides');
+            $('.witchSelects').removeClass('hides');
+            $('#defend').removeClass('four')
+        }
+        $('.god').hide()
     });
 });
 
 $(document).ready(function () { //选择杀谁
     var num = -1;
     var arr = [];
+    // localStorage.setItem("witch", arr);
     $('.witchSelect li').on('click', function () {
         // alert(1)
         var index = $(this).index(); //鼠标点击的li的下标值
@@ -281,7 +332,7 @@ $(document).ready(function () { //选择杀谁
 
         }
         num += 1;
-        // console.log(arr);
+        // console.log(arr); //女巫毒 救人的下标
         localStorage.setItem("witch", arr);
         $('.bane').css({
             'pointer-events': 'auto',
@@ -291,7 +342,14 @@ $(document).ready(function () { //选择杀谁
             'pointer-events': 'auto',
             background: '#32CD32'
         });
+
     });
+
+    // if ($('.day span').text() == '第二天') {
+    //     // alert(1);
+    //     arr.splice(0,arr.length);
+    //     localStorage.setItem('witch', arr);
+    // }
     // console.log(arr);
 
     $('.bane').one('click', function () { //点击毒药
@@ -303,7 +361,8 @@ $(document).ready(function () { //选择杀谁
         var li = lis.split(',');
         var num = li[li.length - 1];
         // console.log(num);
-        $('.witchSelect li').eq(num).addClass('kill');
+        $('.witchSelect li').eq(num).addClass('kill'); //女巫毒人，给死亡标签
+        $('.witchSelect li').eq(num).removeClass('live'); //移除本身的生存标签
         $(this).css({
             'background': '#a8a8a8',
             'pointer-events': 'none'
@@ -324,7 +383,8 @@ $(document).ready(function () { //选择杀谁
         var li = lis.split(',');
         var num = li[li.length - 1];
         // console.log(num);
-        $('.witchSelect li').eq(num).removeClass('kill');
+        $('.witchSelect li').eq(num).removeClass('kill'); //女巫救人，移除死亡标签
+        $('.witchSelect li').eq(num).addClass('live'); //添加生存标签
         $(this).css({
             'background': '#a8a8a8',
             'pointer-events': 'none'
@@ -347,6 +407,7 @@ $(document).ready(function () { //选择杀谁
             'pointer-events': 'auto',
             background: '#FF4500'
         });
+
     });
 
     $('.backWitch').click(function () {
@@ -355,6 +416,7 @@ $(document).ready(function () { //选择杀谁
         $('.header').removeClass('hides');
         $('.firstDiv').removeClass('hides');
         $('.witchSelects').addClass('hides');
+
     });
 
 });
@@ -371,14 +433,10 @@ $(document).ready(function () { //选择杀谁
 $(document).ready(function () {
     var num = -1;
     var arr = [];
+    // localStorage.setItem('defend', arr);
     $(document).ready(function () { //守卫事件
         $('#defend').on('click', function () {
-            setTimeout(function () {
-                $('#defend').addClass('color');
-            }, 2000);
-            $('.header').addClass('hides');
-            $('.firstDiv').addClass('hides');
-            $('.defendChecks').removeClass('hides');
+
             // console.log($('#kill').is('.color'));
             if ($('#defend').is('.color')) {
                 alert("此步骤已完成")
@@ -386,7 +444,22 @@ $(document).ready(function () {
                 $('.firstDiv').removeClass('hides');
                 $('.defendChecks').addClass('hides');
             }
+            if ($('#defend').is('.four')) {
+                alert('请按顺序')
+            } else {
+                setTimeout(function () {
+                    $('#defend').addClass('color');
+                }, 2000);
+                $('.header').addClass('hides');
+                $('.firstDiv').addClass('hides');
+                $('.defendChecks').removeClass('hides');
+                $('#sheriff').removeClass('five')
+            }
+            // console.log(arr);
+            $('.god').hide()
         });
+
+
     });
 
 
@@ -396,10 +469,11 @@ $(document).ready(function () {
         // console.log(index);
         var pitchOn = '<i class="iconfont icon-icon-test pitchOn" style="font-size: 2.4rem;"></i>' //添加选中之后的状态
         $('.defendCheck li').eq(index).append(pitchOn); //鼠标选中哪个就添加哪个
+        $('.defendCheck li').eq(index).addClass('defend'); //守卫选中添加一个守卫标签
         var li = $('.defendCheck i').size(); //判断有几个i
         // console.log(num);
         arr.push(index);
-
+        localStorage.setItem('defend', arr);
 
         if (li > 1) {
 
@@ -413,9 +487,14 @@ $(document).ready(function () {
             'pointer-events': 'auto',
             background: '#FF4500'
         });
-
+        // console.log(arr);
     });
 
+    // if ($('.day span').text() == '第二天') {
+    //     // alert(1);
+    //     arr.splice(0,arr.length);
+    //     localStorage.setItem('defend', arr);
+    // }
 
     $('.suredefend').click(function () {
         $('.backdefend').css({
@@ -431,6 +510,7 @@ $(document).ready(function () {
         $('.header').removeClass('hides');
         $('.firstDiv').removeClass('hides');
         $('.defendChecks').addClass('hides');
+
     });
 
 
@@ -448,8 +528,18 @@ $('#sheriff').click(function () {
     // setTimeout(function () {
     //     $('#sheriff').addClass('color');
     // });
-    $('#sheriff').addClass('color');
-    alert("竞选警长发言");
+    if ($('#sheriff').is('.color')) {
+        alert("此步骤已完成")
+
+    }
+    if ($('#sheriff').is('.five')) {
+        alert('请按顺序')
+    } else {
+        $('#sheriff').addClass('color');
+        alert("竞选警长发言");
+        $('#badge').removeClass('six')
+    }
+
 });
 
 // 竞选警长结束
@@ -462,15 +552,10 @@ $('#sheriff').click(function () {
 $(document).ready(function () { //选择杀谁
     var num = -1;
     var arr = [];
-
+    // localStorage.setItem('badge', arr);
     $(document).ready(function () { //守卫事件
         $('#badge').on('click', function () {
-            setTimeout(function () {
-                $('#badge').addClass('color');
-            }, 2000);
-            $('.header').addClass('hides');
-            $('.firstDiv').addClass('hides');
-            $('.badgeChecks').removeClass('hides');
+
             // console.log($('#kill').is('.color'));
             if ($('#badge').is('.color')) {
                 alert("此步骤已完成")
@@ -478,6 +563,18 @@ $(document).ready(function () { //选择杀谁
                 $('.firstDiv').removeClass('hides');
                 $('.badgeChecks').addClass('hides');
             }
+            if ($('#badge').is('.six')) {
+                alert('请按顺序')
+            } else {
+                setTimeout(function () {
+                    $('#badge').addClass('color');
+                }, 2000);
+                $('.header').addClass('hides');
+                $('.firstDiv').addClass('hides');
+                $('.badgeChecks').removeClass('hides');
+                $('#sheriffSpeak').removeClass('seven')
+            }
+            $('.god').hide()
         });
     });
 
@@ -485,13 +582,14 @@ $(document).ready(function () { //选择杀谁
         // alert(1)
         var index = $(this).index(); //鼠标点击的li的下标值
         // console.log(index);
-        var pitchOn = '<i class="iconfont icon-icon-test pitchOn" style="font-size: 2.4rem;"></i>' //添加选中之后的状态
+        var pitchOn = '<i class="iconfont icon-alarm pitchOn1" style="font-size: 2.4rem;"></i>' //添加选中之后的状态
         $('.badgeCheck li').eq(index).append(pitchOn); //鼠标选中哪个就添加哪个
         var li = $('.badgeCheck i').size(); //判断有几个i
         // console.log(num);
 
         arr.push(index);
         // console.log(arr);
+        localStorage.setItem('badge', arr);
         if (li > 1) {
             // alert(1)
             // var a = arr[num];
@@ -508,7 +606,6 @@ $(document).ready(function () { //选择杀谁
         num += 1;
     });
 
-
     $('.surebadge').click(function () {
         $('.backbadge').css({
             'pointer-events': 'auto',
@@ -521,6 +618,7 @@ $(document).ready(function () { //选择杀谁
         $('.header').removeClass('hides');
         $('.firstDiv').removeClass('hides');
         $('.badgeChecks').addClass('hides');
+
     });
 
 
@@ -536,15 +634,28 @@ $(document).ready(function () {
         // setTimeout(function () {
         //     $('#sheriffSpeak').addClass('color');
         // }, 2000);
-        $('#sheriffSpeak').addClass('color');
-        alert("请警长发言")
+
+        if ($('#sheriffSpeak').is('.seven')) {
+            alert('请按顺序')
+        } else {
+            $('#sheriffSpeak').addClass('color');
+            alert("请警长发言")
+            $('#ownerSpeak').removeClass('eight')
+        }
     });
     $('#ownerSpeak').click(function () {
         // setTimeout(function () {
         //     $('#ownerSpeak').addClass('color');
         // }, 2000);
-        $('#ownerSpeak').addClass('color');
-        alert("请警长发言")
+
+        if ($('#ownerSpeak').is('.eight')) {
+            alert('请按顺序')
+        } else {
+            $('#ownerSpeak').addClass('color');
+            alert("请所有人发言")
+            $('#vote').removeClass('nine')
+        }
+
     });
 });
 
@@ -554,16 +665,12 @@ $(document).ready(function () {
 
 // 投票开始
 
-$(document).ready(function () { 
+$(document).ready(function () {
     var num = -1;
     var arr = [];
+    // localStorage.setItem('vote', arr);
     $('#vote').on('click', function () {
-        setTimeout(function () {
-            $('#vote').addClass('color');
-        }, 2000);
-        $('.header').addClass('hides');
-        $('.firstDiv').addClass('hides');
-        $('.votes').removeClass('hides');
+
         // console.log($('#kill').is('.color'));
         if ($('#vote').is('.color')) {
             alert("此步骤已完成")
@@ -571,6 +678,17 @@ $(document).ready(function () {
             $('.firstDiv').removeClass('hides');
             $('.votes').addClass('hides');
         }
+        if ($('#vote').is('.nine')) {
+            alert('请按顺序')
+        } else {
+            setTimeout(function () {
+                $('#vote').addClass('color');
+            }, 2000);
+            $('.header').addClass('hides');
+            $('.firstDiv').addClass('hides');
+            $('.votes').removeClass('hides');
+        }
+
     });
 
     $('.vote li').on('click', function () {
@@ -581,9 +699,10 @@ $(document).ready(function () {
         $('.vote li').eq(index).append(pitchOn); //鼠标选中哪个就添加哪个
         var li = $('.vote i').size(); //判断有几个i
         // console.log(num);
-    
+
         arr.push(index);
         // console.log(arr);
+        localStorage.setItem('vote', arr);
         if (li > 1) {
             // alert(1)
             // var a = arr[num];
@@ -591,32 +710,205 @@ $(document).ready(function () {
             // console.log($('.vote li').eq(arr[num]).children('i'));
             $('.vote li').eq(arr[num]).children('i').remove(); //删除上一次的添加事件
         }
-    
+
         $('.surevote').css({
             'pointer-events': 'auto',
             background: '#FF4500'
         });
-    
+
         num += 1;
     });
-    
-    
+    // if ($('.day span').text() == '第二天') {
+    //     // alert(1);
+    //     arr.splice(0,arr.length);
+    //     localStorage.setItem('vote', arr);
+    // }
+
     $('.surevote').click(function () {
         $('.backvote').css({
             'pointer-events': 'auto',
             background: '#FF4500'
         });
     });
-    
-    
+
+
     $('.backvote').click(function () { //返回
         $('.header').removeClass('hides');
         $('.firstDiv').removeClass('hides');
         $('.votes').addClass('hides');
+
     });
-    
+
 
 });
 
 
 // 投票结束
+
+
+
+
+
+$('.god').click(function () {
+    $('.header').addClass('hides');
+    $('.firstDiv').addClass('hides');
+    $('.all').removeClass('hides');
+    $('.god').hide();
+
+
+
+    // $(document).ready(function () {
+        // Arr[Arr.length - 1] 去最后一个值
+        // $("#all").load(location.href+"#all");
+        // setTimeout(function () {
+        var killSelects = localStorage.getItem('killSelect'); //狼人杀人的下标
+        var killSelect = killSelects.split(',');
+        var killlength = killSelect.length; //数组的长度
+        var killnum = killSelect[killSelect.length - 1] //每次数组的最后一个值
+        console.log(killnum);
+    
+    
+        localStorage.getItem('seerCheck'); //预言家查看的
+    
+    
+        var witchs = localStorage.getItem('witch'); //女巫
+        var witch = witchs.split(',');
+        var witchnum = witch[witch.length - 1]
+        console.log(witchnum);
+    
+    
+        var defends = localStorage.getItem('defend'); //守卫的
+        var defend = defends.split(',');
+        var defendnum = defend[defend.length - 1]
+        console.log(defendnum);
+    
+        var votes = localStorage.getItem('vote'); //投票的
+        var vote = votes.split(',');
+        var votenum = vote[vote.length - 1]
+        console.log(votenum);
+    
+        // if (killlength > 1) {
+        $('.own li').eq(killnum).removeClass('live'); //
+        $('.own li').eq(killnum).addClass('kill'); //这个和上面那条都是第一次狼人杀人的操作
+        // }
+    
+        // $(".div").load(location.href+" .div");//div局部刷新
+        // $('.bane').click(function () {//女巫毒
+        //     $('.own li').eq(witchnum).addClass('kill');//
+        //     $('.own li').eq(witchnum).removeClass('live');//女巫毒人
+        // });
+    
+        // $('.antidote').click(function () {//女巫救
+        //     $('.own li').eq(killnum).removeClass('kill');//
+        //     $('.own li').eq(killnum).addClass('live');//女巫救人，和狼人的下标是同一个，被杀才救
+        // });
+    
+    
+        $('.suredefend').click(function () {
+            $('.own li').eq(defendnum).addClass('defend');
+        });
+        if ($('.own li').eq(defendnum).is('defend')) {
+            alert(1)
+            $('.own li').eq(defendnum).removeClass('kill');
+            $('.own li').eq(defendnum).addClass('live');
+        }
+    
+        // $('.own li').eq(votenum).removeClass('live');
+        // $('.own li').eq(votenum).addClass('kill');
+    
+        if ($('.own li').is('.kill')) {
+            $('.kill').children().remove();
+            var image = "<img src='img/logo.jpg'>";
+            $('.kill').append(image);
+    
+        }
+        // }, 100);
+    
+    
+    // });
+});
+
+$('.backown').click(function () {
+    $('.header').removeClass('hides');
+    $('.firstDiv').removeClass('hides');
+    $('.all').addClass('hides');
+    $('.god').show();
+});
+
+$('.god').click(function () {
+    $("#all").load(location.href + "#all");
+});
+
+
+var aa = 0;
+$('.backvote').click(function () { //投票页面的返回
+    // $("#all").load(location.href+"#all");
+    
+    var arr = ['二', '三', '四', '五', '六', '七', '八', '九', '十']
+    $('.header').removeClass('hides');
+    $('.firstDiv').removeClass('hides');
+    $('.votes').addClass('hides');
+    $('.day span').text('第' + arr[aa] + '天');
+    $('.god').removeClass('hides');
+
+    $('#kill').removeClass('color');
+    $('#kill').addClass('one');
+    $('#seer').removeClass('color');
+    $('#seer').addClass('two');
+    $('#witch').removeClass('color');
+    $('#witch').addClass('three');
+    $('#defend').removeClass('color');
+    $('#defend').addClass('four');
+    $('#sheriff').removeClass('color');
+    $('#sheriff').addClass('five');
+    $('#badge').removeClass('color');
+    $('#badge').addClass('six');
+    $('#sheriffSpeak').removeClass('color');
+    $('#sheriffSpeak').addClass('seven');
+    $('#ownerSpeak').removeClass('color');
+    $('#ownerSpeak').addClass('eight');
+
+    $('#vote').addClass('nine');
+
+    if ($('.day span').text() == '第二天') {
+        $('#sheriff').addClass('color');
+        $('#badge').addClass('color');
+        $('#sheriff').addClass('five');
+        $('#badge').addClass('six');
+        $('#vote').removeClass('color');
+        $('.god').show();
+
+        $('#defend').click(function (event) {
+            event.stopPropagation()
+            $('#sheriffSpeak').removeClass('seven');
+        });
+
+        $('.back').click(function () {
+            $('.god').show();
+        });
+
+        $('.backSeer').click(function () {
+            $('.god').show();
+        });
+
+        $('.backWitch').click(function () {
+            $('.god').show();
+        });
+
+        $('.backdefend').click(function () {
+            $('.god').show();
+        });
+
+        $('.backbadge').click(function () {
+            $('.god').show();
+        });
+
+        $('.backvote').click(function () {
+            $('.god').show();
+        });
+
+    }
+
+
+    aa += 1;
+});

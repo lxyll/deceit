@@ -200,6 +200,13 @@ header {
     z-index: 5;
 }
 
+.pitchOn1 {
+    position: absolute;
+    top: 0.2rem;
+    left: 0rem;
+    z-index: 5;
+}
+
 /* 狼人部分 结束 */
 
 
@@ -630,3 +637,68 @@ header {
 
 
 /* 投票结束 */
+
+.god {
+    width: 6rem;
+    height: 2.4rem;
+    text-align: center;
+    line-height: 2.4rem;
+    border-radius: 5px;
+    background: #FF4500;
+}
+
+
+.all {
+    overflow-y: scroll;
+    /* height: 300px; */
+    margin-top: 1.2rem;
+}
+
+.all::-webkit-scrollbar {
+    display: none;
+}
+
+.own {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    ;
+    padding: 1.2rem;
+}
+
+
+
+.own li {
+    margin-bottom: 1rem;
+    width: 6.3rem;
+    height: 10rem;
+    /* border: 1px solid red; */
+    overflow: hidden;
+    position: relative;
+}
+
+.own li img {
+    width: 6.3rem;
+    height: 10rem;
+}
+
+.buttonown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.sureown,
+.backown {
+    display: inline-block;
+    background: #FF4500;
+    /* background: #a8a8a8; */
+    height: 2.2rem;
+    width: 5.4rem;
+    text-align: center;
+    line-height: 2.2rem;
+    border-radius: 5px;
+    color: white;
+}
+
